@@ -48,7 +48,7 @@ class JsonExporter implements ExporterInterface
     {
         $output = array();
         foreach ($translations as $key => $value) {
-            $output = array_merge_recursive($output, $this->converterKeyToArray($key, $value));
+            $output = array_replace_recursive($output, $this->converterKeyToArray($key, $value));
         }
 
         return $output;
