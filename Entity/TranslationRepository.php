@@ -34,6 +34,7 @@ class TranslationRepository extends EntityRepository
             ->select('COUNT(DISTINCT t.id) AS number, t.locale')
             ->innerJoin('t.transUnit', 'tu')
             ->andWhere('tu.domain = :domain')
+            ->andWhere('t.content != \'\'')
             ->setParameter('domain', $domain)
             ->groupBy('t.locale')
             ->getQuery()
